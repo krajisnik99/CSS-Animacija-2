@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animacija</title>
+    <style>
+
+        .background{
+            width: 100%;
+            height: 100vh;
+            background-color: #050210;
+        }
+        body{
+            margin: auto;
+        }
+        .krug{
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
+            border-radius: 100%;
+            margin: auto;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            animation-name: rotacija;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-delay: 0;
+        }
+        @keyframes rotacija {
+            from{
+                transform: rotate(0deg);
+            }
+            to{
+                transform: rotate(360deg);
+            }
+        }
+        .krug::before {
+      position: absolute;
+      margin: auto;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      border-radius: 100%;
+      content: '';
+      width: 450px;
+      height: 450px;
+      background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
+      filter: blur(70px);
+      opacity: 0.5;
+    }
+    .inner {
+      width: 340px;
+      height: 340px;
+      background: #050210;
+      border-radius: 100%;
+      position: absolute;
+      margin: auto;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+    .puls {
+      width: 300px;
+      height: 300px;
+      background: blue;
+      border-radius: 100%;
+      position: absolute;
+      margin: auto;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+
+      filter: brightness(25%);
+      animation-name: puls;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      animation-delay: 0;
+
+    }
+    @keyframes puls {
+      0% {
+        transform: scale(.5, .5);
+        opacity: 0.2;
+      }
+
+      100% {
+        transform: scale(1.1, 1.1);
+        opacity: 1;
+      }
+    }
+    .puls::before {
+      position: absolute;
+      margin: auto;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      border-radius: 100%;
+      content: '';
+      width: 100px;
+      height: 100px;
+      background: darkblue;
+      filter: blur(10px);
+      opacity: 0.5;
+    }
+    .puls:hover,
+    .krug:hover {
+      animation-play-state: paused;
+    }
+
+    </style>
+</head>
+<body>
+    <div>
+        <div class="background">
+            <div class="krug">
+                <div class="inner"></div>
+                <div class="puls"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
